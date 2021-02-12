@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+// import CoinbaseService from './services/coinbaseService';
+import AddCoins from './components/AddCoins'
+import ListCoins from './components/ListCoins'
+import { useEffect } from 'react'
+import { useDispatch } from "react-redux";
+import { getCoins } from './redux/coins/middlewares';
 
 function App() {
+  // let service = new CoinbaseService();
+  // service.getRates('USD')
+  // console.log('In')
+  
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getCoins())
+  }, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App mt-20 cointainer mx-auto text-center">
+      <AddCoins />
+      <ListCoins />
     </div>
   );
 }
