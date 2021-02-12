@@ -6,9 +6,6 @@ import { useDispatch } from "react-redux";
 import { getCoins } from './redux/coins/middlewares';
 
 function App() {
-  // let service = new CoinbaseService();
-  // service.getRates('USD')
-  // console.log('In')
   
   const dispatch = useDispatch()
   useEffect(() => {
